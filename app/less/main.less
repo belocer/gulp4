@@ -1,0 +1,21 @@
+@import 'smart-grid';
+
+body {
+	background: darkgreen;
+	display: flex;
+}
+
+.debug {
+  @include debug(rgba(118, 112, 137, 0.24), 1px solid rgba(157, 153, 250, 0.33));
+}
+
+html, body {
+  .reset();
+  color: #fff;
+  font-size: 16px;
+  font-family: monospace;
+}
+
+.wrapper {
+	.wrapper()
+}
