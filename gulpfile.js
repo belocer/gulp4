@@ -2,18 +2,20 @@ let preprocessor = 'less';
 
 const { src, dest, parallel, series, watch } = require('gulp');
 const browserSync = require('browser-sync').create();
-const concat = require('gulp-concat');
 const uglify = require('gulp-uglify-es').default;
-const sass = require('gulp-sass');
-const less = require('gulp-less');
-const autoprefixer = require('gulp-autoprefixer');
-const gcmq = require('gulp-group-css-media-queries');
-const smartGrid = require('smart-grid');
-const sourcemaps = require('gulp-sourcemaps');
-const cleancss = require('gulp-clean-css');
-const imagemin = require('gulp-imagemin');
-const newer = require('gulp-newer');
-const del = require('del');
+concat = require('gulp-concat'),
+sass = require('gulp-sass'),
+less = require('gulp-less'),
+autoprefixer = require('gulp-autoprefixer'),
+gcmq = require('gulp-group-css-media-queries'),
+smartGrid = require('smart-grid'),
+sourcemaps = require('gulp-sourcemaps'),
+cleancss = require('gulp-clean-css'),
+imagemin = require('gulp-imagemin'),
+newer = require('gulp-newer'),
+del = require('del'),
+webp = require('gulp-webp'),
+critical = require('critical');
 
 function browsersync () {
 	browserSync.init({
@@ -53,6 +55,7 @@ function styles () {
 function images () {
 	return src('app/img/src/**/*')
 	.pipe(newer('app/img/dest/'))
+	.pipe(webp())
 	.pipe(imagemin())
 	.pipe(dest('app/img/dest/'));
 }
@@ -127,12 +130,34 @@ function grid () {
   smartGrid('app/' + preprocessor, smartGridConf)
 }
 
+function criticalgenerate () {
+  return critical.generate({
+    base: './dist',
+    src: 'index.html',
+    css: ['css/app.min.css'],
+    width: 430,
+    height: 600,
+    target: {
+      css: 'css/critical.css',
+      uncritical: 'css/async.css',
+    },
+    //minify: true,
+    //extract: true,
+    // Включить класс подвала
+    //include: ['.footer'],
+    ignore: {
+      atrule: ['@font-face'],
+    }
+  });
+}
+
 exports.browsersync = browsersync;
 exports.scripts = scripts;
 exports.styles = styles;
 exports.images = images;
 exports.cleanimg = cleanimg;
 exports.grid = grid;
+exports.criticalgenerate = criticalgenerate;
 exports.build = series(cleandist, styles, scripts, images, buildcopy);
 
 exports.default = parallel(styles, scripts, browsersync, startwatch);

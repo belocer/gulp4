@@ -1,12 +1,13 @@
 @import 'smart-grid';
 
 body {
-	background: darkgreen;
-	display: flex;
+  background: rgba(0, 70, 0, 0.56);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .debug {
-  @include debug(rgba(118, 112, 137, 0.24), 1px solid rgba(157, 153, 250, 0.33));
+  .debug(rgba(118, 112, 137, 0.24), 1px solid rgba(157, 153, 250, 0.33));
 }
 
 html, body {
@@ -17,5 +18,21 @@ html, body {
 }
 
 .wrapper {
-	.wrapper()
+  .wrapper()
+}
+
+.bg1 {
+  background: #ffe3aa;
+}
+
+.bg2 {
+  background: #919191;
+}
+
+.bg3 {
+  background: #019108;
+}
+
+.bg4 {
+  background: #ff48c9;
 }
