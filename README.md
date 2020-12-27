@@ -16,4 +16,7 @@ gulp cleanimg
 
 # Генерировать сетку SmartGrid Дмитрия Лаврика 
 gulp grid
+
+# Генерировать Критически и Ассинхронные стили
+gulp criticalgenerate
 ```
