@@ -1,10 +1,16 @@
 # gulp4
-gulp4
 
-// Собрать сборку gulp build
+### Собрать сборку   
+`gulp build`
 
-// Запустить gulp
 
-// Удалить все изображения gulp cleanimg
+### Запустить  
+`gulp`
 
-// Генерировать сетку SmartGrid Дмитрия Лаврика gulp grid
+
+### Удалить все изображения   
+`gulp cleanimg`
+
+
+### Генерировать сетку SmartGrid Дмитрия Лаврика   
+`gulp grid`
