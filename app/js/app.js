@@ -1,1 +1,8 @@
-console.log(4444 + 666666);
+window.addEventListener('load', () => {
+    let btn = document.querySelector('.header__btn')
+    btn.addEventListener('click', alertWindow)
+
+    function alertWindow(e) {
+        alert(e.target)
+    }
+})

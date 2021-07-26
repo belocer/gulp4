@@ -3,7 +3,6 @@
 
 @break_slg: 2560px;
 @break_lg: 1410px;
-@break_my: 1175px;
 @break_smd: 1100px;
 @break_md: 960px;
 @break_sm: 720px;
@@ -12,7 +11,6 @@
 @offset: 15px;
 @offset_slg: @offset;
 @offset_lg: @offset;
-@offset_my: @offset;
 @offset_smd: @offset;
 @offset_md: @offset;
 @offset_sm: @offset;
@@ -21,16 +19,14 @@
 @offset_one_side: (@offset / 2);
 @offset_slg_one_side: (@offset_slg / 2);
 @offset_lg_one_side: (@offset_lg / 2);
-@offset_my_one_side: (@offset_my / 2);
 @offset_smd_one_side: (@offset_smd / 2);
 @offset_md_one_side: (@offset_md / 2);
 @offset_sm_one_side: (@offset_sm / 2);
 @offset_xs_one_side: (@offset_xs / 2);
 
-@fields: 15px;
+@fields: 30px;
 @fields_slg: 15px;
 @fields_lg: 15px;
-@fields_my: 15px;
 @fields_smd: 15px;
 @fields_md: 15px;
 @fields_sm: 10px;
@@ -48,11 +44,6 @@
     .lg-block({
         padding-left: @fields_lg;
         padding-right: @fields_lg;
-    });
-
-    .my-block({
-        padding-left: @fields_my;
-        padding-right: @fields_my;
     });
 
     .smd-block({
@@ -140,11 +131,6 @@
 .size-lg(@n){
     @val: 100% / @columns * @n;
     .lg(width, ~"calc(@{val} - @{offset_lg})");
-}
-
-.size-my(@n){
-    @val: 100% / @columns * @n;
-    .my(width, ~"calc(@{val} - @{offset_my})");
 }
 
 .size-smd(@n){
@@ -261,38 +247,6 @@
 .shift-lg-padding-right(@n){
     @val: 100% / @columns * @n;
     .lg(padding-right, ~"calc(@{val} + @{offset_lg_one_side})");
-}
-
-.shift-my(@n){
-    @val: 100% / @columns * @n;
-    .my(margin-left, ~"calc(@{val} + @{offset_my_one_side})");
-    .my(margin-right, ~"calc(@{val} + @{offset_my_one_side})");
-}
-
-.shift-my-left(@n){
-    @val: 100% / @columns * @n;
-    .my(margin-left, ~"calc(@{val} + @{offset_my_one_side})");
-}
-
-.shift-my-right(@n){
-    @val: 100% / @columns * @n;
-    .my(margin-right, ~"calc(@{val} + @{offset_my_one_side})");
-}
-
-.shift-my-padding(@n){
-    @val: 100% / @columns * @n;
-    .my(padding-left, ~"calc(@{val} + @{offset_my_one_side})");
-    .my(padding-right, ~"calc(@{val} + @{offset_my_one_side})");
-}
-
-.shift-my-padding-left(@n){
-    @val: 100% / @columns * @n;
-    .my(padding-left, ~"calc(@{val} + @{offset_my_one_side})");
-}
-
-.shift-my-padding-right(@n){
-    @val: 100% / @columns * @n;
-    .my(padding-right, ~"calc(@{val} + @{offset_my_one_side})");
 }
 
 .shift-smd(@n){
@@ -443,18 +397,6 @@
 
 .lg-block(@content){
     @media screen and (max-width: @break_lg){
-        @content();
-    }
-}
-
-.my(@name, @value){
-    @media screen and (max-width: @break_my){
-        @{name}: @value;
-    }
-}
-
-.my-block(@content){
-    @media screen and (max-width: @break_my){
         @content();
     }
 }

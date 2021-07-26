@@ -1,21 +1,21 @@
 @import 'smart-grid';
+@import 'header';
+
+html {
+  .reset();
+  color: #fff;
+  font-size: 10px;
+}
 
 body {
-	background: darkgreen;
-	display: flex;
+  font-size: 16px;
 }
 
 .debug {
-  @include debug(rgba(118, 112, 137, 0.24), 1px solid rgba(157, 153, 250, 0.33));
-}
-
-html, body {
-  .reset();
-  color: #fff;
-  font-size: 16px;
-  font-family: monospace;
+  .debug(rgba(72, 67, 83, 0.24), 1px solid rgba(57, 51, 250, 0.33));
+  pointer-events: none;
 }
 
 .wrapper {
-	.wrapper()
+  .wrapper()
 }

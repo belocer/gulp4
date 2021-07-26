@@ -27,6 +27,7 @@
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify-es": "^2.0.0",
+    "gulp-webp": "^4.0.1",
     "jquery": "^3.5.1",
     "smart-grid": "^2.1.2"
   },
