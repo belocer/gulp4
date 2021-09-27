@@ -1,4 +1,4 @@
-# gulp4
+# gulp4 / Landing Page / WordPress
 
 ### Собрать сборку   
 `gulp build`
@@ -14,3 +14,7 @@
 
 ### Генерировать сетку SmartGrid Дмитрия Лаврика   
 `gulp grid`
+
+
+### Генерировать Критически и Асинхронные стили
+`gulp criticalStart`
